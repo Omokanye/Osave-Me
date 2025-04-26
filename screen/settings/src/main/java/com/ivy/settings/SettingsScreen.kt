@@ -550,6 +550,7 @@ private fun BoxWithConstraintsScope.UI(
         }
     )
 
+
     DeleteModal(
         title = stringResource(R.string.delete_all_cloud_data_question),
         description = stringResource(
