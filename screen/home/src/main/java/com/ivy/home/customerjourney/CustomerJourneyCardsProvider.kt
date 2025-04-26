@@ -67,7 +67,7 @@ class CustomerJourneyCardsProvider @Inject constructor(
             id = "shutdown",
             condition = { _, _, _ -> true },
             title = "Important Notice: App No Longer Maintained",
-            description = "As of Nov 5th 2024, Ivy Wallet is no longer maintained by the original developers. You may continue to use the app, but it will no longer receive updates, bug fixes, or support, and it may stop functioning at some point.",
+            description = "As of Nov 5th 2024, Osave Me is no longer maintained by the original developers. You may continue to use the app, but it will no longer receive updates, bug fixes, or support, and it may stop functioning at some point.",
             cta = "Learn More",
             ctaIcon = R.drawable.github_logo,
             background = Gradient.solid(Red),
@@ -248,9 +248,9 @@ class CustomerJourneyCardsProvider @Inject constructor(
                 trnCount > 10
             },
             title = "Apologies for the bugs!",
-            description = "Ivy Wallet v4.6.2 had some annoying bugs... " +
+            description = "Osave Me v4.6.2 had some annoying bugs... " +
                     "We're sorry for that and we hope that we have fixed them.\n\n" +
-                    "Ivy Wallet is an open-source and community-driven project " +
+                    "Osave Me is an open-source and community-driven project " +
                     "that is maintained and develop solely by voluntary contributors. " +
                     "So to help us and make your experience better, " +
                     "please report any bugs as a GitHub issue. You can also" +

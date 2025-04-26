@@ -59,34 +59,54 @@ class DisclaimerViewModel @Inject constructor(
         // LEGAL text - do NOT extract or translate
         val LegalCheckboxes = listOf(
             CheckboxViewState(
-                text = "I recognize this app is open-source and provided 'as-is' " +
-                        "with no warranties, explicit or implied. " +
-                        "I fully accept all risks of errors, defects, or failures, " +
-                        "using the app solely at my own risk.",
+                text = "Osave Me is a record-keeping and networking platform, " +
+                        "not a financial institution or investment advisor. We do " +
+                        "not guarantee the accuracy, completeness, or reliability of " +
+                        "any financial data, investment opportunities, or transactions " +
+                        "conducted through our platform. Users acknowledge that all " +
+                        "decisions are made at their own risk, and Osave Me bears no " +
+                        "responsibility for any losses incurred.",
                 checked = false,
             ),
             CheckboxViewState(
-                text = "I understand there is no warranty for the accuracy, " +
-                        "reliability, or completeness of my data. " +
-                        "Manual data backup is my responsibility, and I agree to not hold " +
-                        "the app liable for any data loss.",
+                text = "Osave Me does not verify, endorse, or manage any investments or " +
+                        "financial transactions made through the platform. Users must conduct " +
+                        "their own independent research (DYOR) before engaging in any investment " +
+                        "or business transaction. By using this platform, you accept full responsibility " +
+                        "for your financial decisions.",
+                checked = false
+            ),
+            CheckboxViewState(
+                text = " Osave Me does not provide legal, financial, or investment advice. " +
+                        "Any information provided on the platform is for general informational purposes " +
+                        "only and should not be considered financial guidance.",
                 checked = false,
             ),
             CheckboxViewState(
-                text = "I hereby release the app developers, contributors, " +
-                        "and distributing company from any liability for " +
-                        "claims, damages, legal fees, or losses, including those resulting " +
-                        "from security breaches or data inaccuracies.",
+                text = "By using this platform, you waive any legal claims against Osave Me, its developers, " +
+                        "partners, contributors, and affiliated entities for any losses, fraud, " +
+                        "misrepresentations, or damages resulting from platform use. Osave Me is not responsible " +
+                        "for security breaches, fraudulent schemes, or third-party interactions.",
                 checked = false,
             ),
             CheckboxViewState(
-                text = "I am aware and accept that the app may display misleading information " +
-                        "or contain inaccuracies. " +
-                        "I assume full responsibility for verifying the integrity " +
-                        "of financial data and calculations before making " +
-                        "any decisions based on app data.",
+                text = "Investing and business networking involve risks, including the potential loss of money. " +
+                        "Osave Me does not hold or manage funds, nor does it guarantee the legitimacy of " +
+                        "investors or business owners. Users should take extra precautions before committing " +
+                        "financially.",
                 checked = false,
             ),
+            CheckboxViewState(
+                text = "Osave Me does not offer refunds or facilitate dispute resolution between users. Users " +
+                        "engage in transactions at their own discretion and must handle conflicts independently.",
+                checked = false,
+            ),
+            CheckboxViewState(
+                text = "By clicking \"I Agree,\" you confirm that you have read, understood, and accepted this agreement, releasing " +
+                        "Osave Me from any liability related to your use of the platform.",
+                checked = false
+            )
+
         ).toImmutableList()
     }
 }

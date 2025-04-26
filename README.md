@@ -53,9 +53,9 @@ Join our Telegram community and drop a message in the "Development" topic.
 
 ## Learning Materials
 
-Ivy Wallet is a great place to code and learn. That's why we also link to great learning materials (books, articles, videos), check them out in **[docs/resources 📚](docs/resources/)**.
+Osave Me is a great place to code and learn. That's why we also link to great learning materials (books, articles, videos), check them out in **[docs/resources 📚](docs/resources/)**.
 
-Make sure to check out our short **[Developer Guidelines 🏗️](docs/Guidelines.md)** to learn more about the technical side of the Ivy Wallet.
+Make sure to check out our short **[Developer Guidelines 🏗️](docs/Guidelines.md)** to learn more about the technical side of the Osave Me.
 
 ## Tech Stack
 
@@ -99,7 +99,7 @@ Make sure to check out our short **[Developer Guidelines 🏗️](docs/Guideline
 
 ## Contribute
 
-**Want to contribute?** See **[CONTRIBUTING.md](/CONTRIBUTING.md)** [![Fork Ivy Wallet](https://img.shields.io/github/forks/Ivy-Apps/ivy-wallet?logo=github&style=social)](https://github.com/Ivy-Apps/ivy-wallet/fork)
+**Want to contribute?** See **[CONTRIBUTING.md](/CONTRIBUTING.md)** [![Fork Osave Me](https://img.shields.io/github/forks/Ivy-Apps/ivy-wallet?logo=github&style=social)](https://github.com/Ivy-Apps/ivy-wallet/fork)
 
 ### Contributors Wall:
 
@@ -115,7 +115,7 @@ _Note: It may take up to 24 hours for the [contrib.rocks](https://contrib.rocks/
 
 ## Creative Contributors
 
-Folks that helped Ivy Wallet in a non-dev creative ways that can't be captured on GitHub.
+Folks that helped Osave Me in a non-dev creative ways that can't be captured on GitHub.
 
 ### Creative Contributors Wall:
 
@@ -130,7 +130,7 @@ Folks that helped Ivy Wallet in a non-dev creative ways that can't be captured o
 <div style="text-align: center">
     <img src="https://avatars.githubusercontent.com/u/62771583?v=4" width="100px;" alt="Stefan Ilijev - Desinger"/><br>
     <strong>Stefan Ilijev</strong><br>
-    <small>Co-founder and designer of Ivy Wallet. Created the <a href="https://www.figma.com/file/kSwIa07jcHEHZXo6rzx7dn/Design-System?node-id=0%3A1&mode=dev">Ivy design system</a>.</small>
+    <small>Co-founder and designer of Osave Me. Created the <a href="https://www.figma.com/file/kSwIa07jcHEHZXo6rzx7dn/Design-System?node-id=0%3A1&mode=dev">Ivy design system</a>.</small>
     <br/>
     <br/>
 </div>
@@ -154,6 +154,6 @@ Folks that helped Ivy Wallet in a non-dev creative ways that can't be captured o
 > 
 ### [ivy-wallet-web](https://github.com/pratikkabade/ivy-wallet-web) by [Pratik Kabade](https://github.com/pratikkabade)
 
-This community-developed project allows users to conveniently access Ivy Wallet through their **web browsers**, ensuring a smooth experience across multiple platforms.
+This community-developed project allows users to conveniently access Osave Me through their **web browsers**, ensuring a smooth experience across multiple platforms.
 - [GitHub URL](https://github.com/pratikkabade/ivy-wallet-web)
 - [Web app URL](https://ivy-wallet-web.vercel.app/)

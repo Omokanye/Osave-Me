@@ -15,7 +15,7 @@ class WalletStatsUseCase @Inject constructor(
     private val exchangeUseCase: ExchangeUseCase,
 ) {
     /**
-     * Calculates the stats for Ivy Wallet including excluded accounts.
+     * Calculates the stats for Osave Me including excluded accounts.
      * It ignores transfers and focuses only on income and expenses.
      * Stats that can't be exchanged in [outCurrency] are skipped
      * and accumulated as [ExchangedWalletStats.exchangeErrors].
@@ -29,7 +29,7 @@ class WalletStatsUseCase @Inject constructor(
     }
 
     /**
-     * Calculates the stats for Ivy Wallet including excluded accounts.
+     * Calculates the stats for Osave Me including excluded accounts.
      * It ignores transfers and focuses only on income and expenses.
      */
     suspend fun calculate(

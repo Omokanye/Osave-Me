@@ -1,6 +1,6 @@
 # 🏗️ Developer Guidelines
 
-The biggest challenge in software engineering is the fight against **complexity**. If you're planning to contribute to Ivy Wallet, we mainly care about two things:
+The biggest challenge in software engineering is the fight against **complexity**. If you're planning to contribute to Osave Me, we mainly care about two things:
 
 1. Your PR works and doesn't break anything.
 2. Your PR is simple and doesn't add complexity.
@@ -15,7 +15,7 @@ Be **pragmatic**. Engineering is all about being practical and finding optimal t
 
 > Follow [the 80/20 principle](https://en.wikipedia.org/wiki/Pareto_principle) - from 20% effort comes 80% of the results.
 
-In Ivy Wallet we care about:
+In Osave Me we care about:
 
 - Software complexity
 - Stability

@@ -3,6 +3,7 @@ package com.ivy.wallet
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
+import com.google.android.gms.ads.MobileAds
 import com.ivy.base.legacy.appContext
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
@@ -29,5 +30,6 @@ class IvyAndroidApp : Application(), Configuration.Provider {
         if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
         }
+        MobileAds.initialize(this)
     }
 }

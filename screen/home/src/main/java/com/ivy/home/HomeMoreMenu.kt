@@ -257,12 +257,6 @@ private fun ColumnScope.Content(
         balance = balance,
         onBufferClick = onBufferClick
     )
-
-    Spacer(Modifier.height(16.dp))
-
-    OpenSource()
-
-    Spacer(Modifier.weight(1f))
 }
 
 @Composable
@@ -302,54 +296,6 @@ private fun SearchButton(
     }
 }
 
-@Composable
-private fun ColumnScope.OpenSource() {
-    val uriHandler = LocalUriHandler.current
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp)
-            .clip(UI.shapes.r4)
-            .background(UI.colors.pure)
-            .clickable {
-                openUrl(
-                    uriHandler = uriHandler,
-                    url = Constants.URL_IVY_WALLET_REPO
-                )
-            }
-            .padding(vertical = 12.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Spacer(Modifier.width(16.dp))
-
-        IvyIcon(
-            icon = R.drawable.github_logo
-        )
-
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp, end = 24.dp)
-        ) {
-            Text(
-                text = stringResource(R.string.ivy_wallet_open_source),
-                style = UI.typo.b2.style(
-                    fontWeight = FontWeight.ExtraBold
-                )
-            )
-
-            Spacer(Modifier.height(4.dp))
-
-            Text(
-                text = Constants.URL_IVY_WALLET_REPO,
-                style = UI.typo.c.style(
-                    fontWeight = FontWeight.ExtraBold,
-                    color = Blue
-                )
-            )
-        }
-    }
-}
 
 @Composable
 private fun ColumnScope.Buffer(

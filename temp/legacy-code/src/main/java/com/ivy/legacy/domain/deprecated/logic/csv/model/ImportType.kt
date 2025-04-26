@@ -16,7 +16,7 @@ import com.ivy.ui.R
 
 @Immutable
 enum class ImportType {
-    IVY,
+    OSAVE_ME,
     MONEY_MANAGER,
     WALLET_BY_BUDGET_BAKERS,
     SPENDEE,
@@ -28,7 +28,7 @@ enum class ImportType {
     FINANCISTO;
 
     fun color(): Color = when (this) {
-        IVY -> Ivy
+        OSAVE_ME -> Ivy
         MONEY_MANAGER -> Red
         WALLET_BY_BUDGET_BAKERS -> Green
         SPENDEE -> RedLight
@@ -41,7 +41,7 @@ enum class ImportType {
     }
 
     fun appId(): String = when (this) {
-        IVY -> "com.ivy.wallet"
+        OSAVE_ME -> "com.ivy.wallet"
         MONEY_MANAGER -> "com.realbyteapps.moneymanagerfree"
         WALLET_BY_BUDGET_BAKERS -> "com.droid4you.application.wallet"
         SPENDEE -> "com.cleevio.spendee"
@@ -55,7 +55,7 @@ enum class ImportType {
 
     @DrawableRes
     fun logo(): Int = when (this) {
-        IVY -> R.drawable.ivywallet_logo
+        OSAVE_ME -> R.drawable.osave_me_logo
         MONEY_MANAGER -> R.drawable.moneymanager_logo
         WALLET_BY_BUDGET_BAKERS -> R.drawable.wallet_by_budgetbakers_logo
         SPENDEE -> R.drawable.spendee_logo
@@ -68,7 +68,7 @@ enum class ImportType {
     }
 
     fun listName(): String = when (this) {
-        IVY -> "Ivy Wallet"
+        OSAVE_ME -> "Osave Me"
         MONEY_MANAGER -> "Money Manager"
         WALLET_BY_BUDGET_BAKERS -> "Wallet by BudgetBakers"
         SPENDEE -> "Spendee"
@@ -81,7 +81,7 @@ enum class ImportType {
     }
 
     fun appName(): String = when (this) {
-        IVY -> "Ivy Wallet"
+        OSAVE_ME -> "Osave Me"
         else -> listName()
     }
 }

@@ -1,5 +1,7 @@
 package com.ivy.home
 
+import android.app.Activity
+import android.content.Context
 import com.ivy.base.legacy.Transaction
 import com.ivy.home.customerjourney.CustomerJourneyCardModel
 import com.ivy.legacy.data.model.TimePeriod
@@ -29,4 +31,6 @@ sealed interface HomeEvent {
 
     data object SelectNextMonth : HomeEvent
     data object SelectPreviousMonth : HomeEvent
+
+    data class AdClick(val context: Context): HomeEvent
 }

@@ -1,5 +1,5 @@
 name: Dev Request
-description: Make the Ivy Wallet dev experience better.
+description: Make the Osave Me dev experience better.
 labels: ["dev"]
 body:
   - type: checkboxes

@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -173,10 +174,11 @@ fun BoxWithConstraintsScope.OnboardingSplashLogin(
                 }
                 .clickableNoIndication(rememberInteractionSource()) {
                     internalSwitch = !internalSwitch
-                },
-            painter = painterResource(id = R.drawable.ivy_wallet_logo),
-            contentScale = ContentScale.FillBounds,
-            contentDescription = "Ivy Wallet logo"
+                }
+                .clip(RoundedCornerShape(50f)),
+            painter = painterResource(id = R.drawable.osave_me_logo),
+            contentScale = ContentScale.Crop,
+            contentDescription = "Osave Me logo",
         )
 
         Spacer(Modifier.height(marginTextTop))
@@ -186,7 +188,7 @@ fun BoxWithConstraintsScope.OnboardingSplashLogin(
                 ivyContext = ivyContext,
                 percentTransition = percentTransition
             ),
-            text = "Ivy Wallet",
+            text = "Osave Me",
             style = UI.typo.h2.style(
                 color = UI.colors.pureInverse,
                 fontWeight = FontWeight.ExtraBold
@@ -204,28 +206,6 @@ fun BoxWithConstraintsScope.OnboardingSplashLogin(
             style = UI.typo.b2.style(
                 color = UI.colors.pureInverse,
                 fontWeight = FontWeight.SemiBold
-            )
-        )
-
-        val uriHandler = LocalUriHandler.current
-        Text(
-            modifier = Modifier
-                .animateXCenterToLeft(
-                    ivyContext = ivyContext,
-                    percentTransition = percentTransition
-                )
-                .clickable {
-                    openUrl(
-                        uriHandler = uriHandler,
-                        url = Constants.URL_IVY_WALLET_REPO
-                    )
-                }
-                .padding(vertical = 8.dp)
-                .padding(end = 8.dp),
-            text = stringResource(R.string.opensource),
-            style = UI.typo.c.style(
-                color = Green,
-                fontWeight = FontWeight.Bold
             )
         )
 

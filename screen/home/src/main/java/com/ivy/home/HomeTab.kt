@@ -20,6 +20,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -98,6 +99,8 @@ fun BoxWithConstraintsScope.HomeUi(
         ivyContext.setMoreMenuExpanded(expanded)
     }
 
+    val context = LocalContext.current
+
     val baseCurrency = uiState.baseData.baseCurrency
 
     Column(
@@ -137,7 +140,7 @@ fun BoxWithConstraintsScope.HomeUi(
             currency = baseCurrency,
             balance = uiState.balance.toDouble(),
             hideBalance = uiState.hideBalance,
-
+            streaksCount = uiState.streaksCount,
             onShowMonthModal = {
                 choosePeriodModal = ChoosePeriodModalData(
                     period = uiState.period
@@ -175,6 +178,9 @@ fun BoxWithConstraintsScope.HomeUi(
             },
             onHiddenIncomeClick = {
                 onEvent(HomeEvent.HiddenIncomeClick)
+            },
+            onAdClick = {
+                onEvent(HomeEvent.AdClick(context = context))
             },
 
             period = uiState.period,
@@ -312,6 +318,7 @@ fun HomeLazyColumn(
     onHiddenIncomeClick: () -> Unit,
     onSkipTransaction: (Transaction) -> Unit,
     onSkipAllTransactions: (List<Transaction>) -> Unit,
+    onAdClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val ivyContext = ivyWalletCtx()
@@ -366,7 +373,8 @@ fun HomeLazyColumn(
         item {
             CustomerJourney(
                 customerJourneyCards = customerJourneyCards,
-                onDismiss = onDismiss
+                onDismiss = onDismiss,
+                onAdClick = onAdClick
             )
         }
 
@@ -432,7 +440,8 @@ private fun BoxWithConstraintsScope.PreviewHomeTab(isDark: Boolean = false) {
                 hideBalance = false,
                 hideIncome = false,
                 expanded = false,
-                shouldShowAccountSpecificColorInTransactions = false
+                shouldShowAccountSpecificColorInTransactions = false,
+                streaksCount = 10
             ),
             onEvent = {}
         )

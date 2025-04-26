@@ -8,6 +8,7 @@ import com.ivy.base.legacy.SharedPrefs
 import com.ivy.data.model.Category
 import com.ivy.data.model.primitive.AssetCode
 import com.ivy.data.repository.CategoryRepository
+import com.ivy.data.repository.StreaksRepository
 import com.ivy.legacy.data.model.AccountBalance
 import com.ivy.legacy.utils.OpResult
 import com.ivy.legacy.utils.ioThread
@@ -43,6 +44,7 @@ class OnboardingRouter(
     private val categoryRepository: CategoryRepository,
     private val logoutLogic: LogoutLogic,
     private val syncExchangeRatesUseCase: SyncExchangeRatesUseCase,
+    private val streaksRepository: StreaksRepository
 ) {
 
     var isLoginCache = false
@@ -227,7 +229,7 @@ class OnboardingRouter(
         baseCurrency: IvyCurrency?
     ) {
         sharedPrefs.putBoolean(SharedPrefs.ONBOARDING_COMPLETED, true)
-
+        streaksRepository.setStreaksCount(100) // add 100 streaks for new user
         navigateOutOfOnboarding()
 
         // the rest below is not UI stuff so I don't care
@@ -249,6 +251,7 @@ class OnboardingRouter(
     }
 
     private fun navigateOutOfOnboarding() {
+
         nav.resetBackStack()
         nav.navigateTo(MainScreen)
     }

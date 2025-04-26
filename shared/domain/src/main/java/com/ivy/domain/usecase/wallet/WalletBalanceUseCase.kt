@@ -17,7 +17,7 @@ class WalletBalanceUseCase @Inject constructor(
 ) {
 
     /**
-     * Calculates the all-time balance of Ivy Wallet by summing
+     * Calculates the all-time balance of Osave Me by summing
      * the balances of all included (not excluded) accounts.
      * The balance can be negative. Balances that can't be exchanged in [outCurrency]
      * are skipped and accumulated in [ExchangedWalletBalance.exchangeErrors].
@@ -29,7 +29,7 @@ class WalletBalanceUseCase @Inject constructor(
     }
 
     /**
-     * Calculates the all-time balance of Ivy Wallet by summing
+     * Calculates the all-time balance of Osave Me by summing
      * the balances of all included (not excluded) accounts.
      * The balance can be negative.
      *

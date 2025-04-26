@@ -12,7 +12,7 @@ class CSVMapper @Inject constructor() {
 
     @ExperimentalStdlibApi
     fun mapping(type: ImportType, headerRow: String?) = when (type) {
-        ImportType.IVY -> {
+        ImportType.OSAVE_ME -> {
             if (headerRow?.contains("Currency") == true) {
                 ivyMappingV2()
             } else {

@@ -17,4 +17,9 @@ dependencies {
     implementation(projects.widget.balance)
 
     testImplementation(projects.shared.ui.testing)
+
+    //flutterwave
+    implementation("com.github.flutterwave.rave-android:rave_android:2.2.1")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 }
