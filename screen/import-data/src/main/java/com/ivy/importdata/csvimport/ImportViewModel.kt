@@ -107,7 +107,7 @@ class ImportViewModel @Inject constructor(
             val rawCSV = fileReader.read(
                 uri = fileUri,
                 charset = when (importType) {
-                    ImportType.IVY -> Charsets.UTF_16
+                    ImportType.OSAVE_ME -> Charsets.UTF_16
                     else -> Charsets.UTF_8
                 }
             ).getOrNull()

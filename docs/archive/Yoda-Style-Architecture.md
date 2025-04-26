@@ -2,7 +2,7 @@
 
 [![PRs welcome!](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Ivy-Apps/ivy-wallet/blob/main/CONTRIBUTING.md)
 [![GitHub Repo stars](https://img.shields.io/github/stars/Ivy-Apps/ivy-wallet?style=social)](https://github.com/Ivy-Apps/ivy-wallet/stargazers)
-[![Fork Ivy Wallet](https://img.shields.io/github/forks/Ivy-Apps/ivy-wallet?logo=github&style=social)](https://github.com/Ivy-Apps/ivy-wallet/fork)
+[![Fork Osave Me](https://img.shields.io/github/forks/Ivy-Apps/ivy-wallet?logo=github&style=social)](https://github.com/Ivy-Apps/ivy-wallet/fork)
 
 Solutions short and working, must be. Break the app, they must not.
 
@@ -42,7 +42,7 @@ Reason, straightforward it is. More strength and simplicity, the Compose runtime
 - Power of `LaunchedEffect`, `remember`, and all Compose gifts, you have.
 - Simpler and less tangled code, this gives.
 
-> **A tip for you:** In Ivy Wallet, the `ComposeViewModel` base inherit, and set you are.
+> **A tip for you:** In Osave Me, the `ComposeViewModel` base inherit, and set you are.
 
 ## Architecture Overview
 

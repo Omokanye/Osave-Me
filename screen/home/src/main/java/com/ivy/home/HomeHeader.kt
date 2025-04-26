@@ -5,6 +5,7 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,10 +26,12 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ivy.base.model.TransactionType
 import com.ivy.design.api.LocalTimeConverter
 import com.ivy.design.api.LocalTimeFormatter
@@ -70,6 +73,7 @@ internal fun HomeHeader(
     name: String,
     period: TimePeriod,
     currency: String,
+    streaksCount: Int,
     balance: Double,
     onShowMonthModal: () -> Unit,
     onBalanceClick: () -> Unit,
@@ -96,7 +100,7 @@ internal fun HomeHeader(
             currency = currency,
             balance = balance,
             hideBalance = hideBalance,
-
+            streaksCount = streaksCount,
             onShowMonthModal = onShowMonthModal,
             onBalanceClick = onBalanceClick,
             onHiddenBalanceClick = onHiddenBalanceClick,
@@ -121,6 +125,7 @@ private fun HeaderStickyRow(
     name: String,
     period: TimePeriod,
     currency: String,
+    streaksCount: Int,
     balance: Double,
     onShowMonthModal: () -> Unit,
     onBalanceClick: () -> Unit,
@@ -129,6 +134,9 @@ private fun HeaderStickyRow(
     onHiddenBalanceClick: () -> Unit,
     onSelectPreviousMonth: () -> Unit,
 ) {
+
+    val interactionSource = rememberInteractionSource()
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -180,34 +188,43 @@ private fun HeaderStickyRow(
                 )
             }
         }
-
-        IvyOutlinedButton(
-            modifier = Modifier.horizontalSwipeListener(
-                sensitivity = 75,
-                state = rememberSwipeListenerState(),
-                onSwipeLeft = {
-                    onSelectNextMonth()
-                },
-                onSwipeRight = {
-                    onSelectPreviousMonth()
-                },
-            ),
-            iconStart = R.drawable.ic_calendar,
-            text = period.toDisplayShort(
-                startDateOfMonth = ivyWalletCtx().startDayOfMonth,
-                timeConverter = LocalTimeConverter.current,
-                timeProvider = LocalTimeProvider.current,
-                timeFormatter = LocalTimeFormatter.current,
-            ),
-            minWidth = 130.dp,
-        ) {
-            onShowMonthModal()
-        }
+        StreaksRow(streaksCount = streaksCount, modifier = Modifier.padding(end = 8.dp))
+        IvyIcon(
+            icon = R.drawable.ic_calendar,
+            modifier = Modifier
+                .border(2.dp, UI.colors.medium, UI.shapes.rFull)
+                .width(56.dp)
+                .clickable(
+                    interactionSource = interactionSource,
+                    indication = null,
+                    onClick = {
+                        onShowMonthModal()
+                    }
+                )
+        )
 
         Spacer(Modifier.width(12.dp))
 
         Spacer(Modifier.width(40.dp)) // settings menu button spacer
     }
+}
+
+@Composable
+private fun StreaksRow(
+    streaksCount: Int,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = pluralStringResource(R.plurals.streaks, streaksCount, streaksCount),
+        style = UI.typo.b1.style(
+            fontWeight = FontWeight.Bold,
+            color = UI.colors.pureInverse,
+        ),
+        fontSize = 16.sp,
+        overflow = TextOverflow.Ellipsis,
+        maxLines = 1,
+        modifier =  modifier
+    )
 }
 
 @ExperimentalAnimationApi

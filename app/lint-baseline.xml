@@ -8492,7 +8492,7 @@
     <issue
         id="UnusedResources"
         message="The resource `R.string.set_a_budget_description` appears to be unused"
-        errorLine1="    &lt;string name=&quot;set_a_budget_description&quot;>Ivy Wallet not only helps you to passively track your expenses but also proactively create your financial future by setting budgets and sticking to them.&lt;/string>"
+        errorLine1="    &lt;string name=&quot;set_a_budget_description&quot;>Osave Me not only helps you to passively track your expenses but also proactively create your financial future by setting budgets and sticking to them.&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="../ivy-resources/src/main/res/values/strings.xml"
@@ -8547,7 +8547,7 @@
     <issue
         id="UnusedResources"
         message="The resource `R.string.we_need_your_help_description` appears to be unused"
-        errorLine1="    &lt;string name=&quot;we_need_your_help_description&quot;>We\&apos;re just a designer and a developer working on the app after our 9–5 jobs. Currently, we invest a lot of time and money to generate only losses and exhaustion. If you want us to keep developing Ivy Wallet please share it with friends and family.\n\nP.S. Google PlayStore reviews also helps a lot!&lt;/string>"
+        errorLine1="    &lt;string name=&quot;we_need_your_help_description&quot;>We\&apos;re just a designer and a developer working on the app after our 9–5 jobs. Currently, we invest a lot of time and money to generate only losses and exhaustion. If you want us to keep developing Osave Me please share it with friends and family.\n\nP.S. Google PlayStore reviews also helps a lot!&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="../ivy-resources/src/main/res/values/strings.xml"

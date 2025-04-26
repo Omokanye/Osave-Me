@@ -1,4 +1,4 @@
-# Contributing to Ivy Wallet
+# Contributing to Osave Me
 
 >[!IMPORTANT]
 >**🚨 Notice: Project No Longer Maintained 🚨**
@@ -18,14 +18,14 @@
 
 
 ## 1. Fork the repo
-Fork of the official Ivy Wallet repo by clicking on the badge: [![Fork Ivy Wallet](https://img.shields.io/github/forks/Ivy-Apps/ivy-wallet?logo=github&style=social)](https://github.com/Ivy-Apps/ivy-wallet/fork).
+Fork of the official Osave Me repo by clicking on the badge: [![Fork Osave Me](https://img.shields.io/github/forks/Ivy-Apps/ivy-wallet?logo=github&style=social)](https://github.com/Ivy-Apps/ivy-wallet/fork).
 
 **[Forking - GitHub tutorial](https://docs.github.com/en/get-started/quickstart/fork-a-repo)**
 
 
 ## 2. Pick an issue
 ### Workflow:
-1. Browse **[Ivy Wallet Issues](https://github.com/Ivy-Apps/ivy-wallet/issues)**.
+1. Browse **[Osave Me Issues](https://github.com/Ivy-Apps/ivy-wallet/issues)**.
 2. Choose an issue that you understand and like.
 > Didn't find anything fitting? Try **[creating a new issue](https://github.com/Ivy-Apps/ivy-wallet/issues/new/choose)**.
 3. ⚠️ Comment **exactly** **`I'm on it`** on that issue for GitHub Actions to automatically assign it to you.
@@ -69,14 +69,14 @@ git checkout -b fix-issue-{YOUR_ISSUE_NUMBER}
 So far, you should have pushed your work to your feature branch and have tested
 that it works on a real Android device.
 The final step is to [open a pull request](https://github.com/Ivy-Apps/ivy-wallet/pulls) to the `main` branch of the
-official Ivy Wallet repo.
+official Osave Me repo.
 
 **[Submitting a PR - GitHub tutorial](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)**
 
 ### IMPORTANT:
 - Make sure the base repository is set to `Ivy-Apps/ivy-wallet` and its base is set to `main`.
 - Pull requests to other branches will be rejected.
-- Ivy Wallet doesn't have QA, so **you are the QA!** Please test your implementation carefully.
+- Osave Me doesn't have QA, so **you are the QA!** Please test your implementation carefully.
 
 ### Questions?
 Ask them in [our private Telegram community](https://t.me/+ETavgioAvWg4NThk).

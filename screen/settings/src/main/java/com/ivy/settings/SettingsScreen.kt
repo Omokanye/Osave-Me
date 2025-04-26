@@ -1,5 +1,6 @@
 package com.ivy.settings
 
+import android.app.Activity
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -28,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
@@ -37,6 +39,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.flutterwave.raveandroid.RaveUiManager
 import com.ivy.base.legacy.Theme
 import com.ivy.design.l0_system.UI
 import com.ivy.design.l0_system.style
@@ -63,7 +66,6 @@ import com.ivy.wallet.ui.theme.Gradient
 import com.ivy.wallet.ui.theme.GradientGreen
 import com.ivy.wallet.ui.theme.GradientIvy
 import com.ivy.wallet.ui.theme.Gray
-import com.ivy.wallet.ui.theme.MediumBlack
 import com.ivy.wallet.ui.theme.Red
 import com.ivy.wallet.ui.theme.Red3
 import com.ivy.wallet.ui.theme.White
@@ -428,15 +430,7 @@ private fun BoxWithConstraintsScope.UI(
             }
 
             Spacer(Modifier.height(12.dp))
-
-            SettingsPrimaryButton(
-                icon = R.drawable.github_logo,
-                iconPadding = 10.dp,
-                text = stringResource(R.string.ivy_wallet_is_opensource),
-                backgroundGradient = Gradient.solid(MediumBlack)
-            ) {
-                rootScreen.openUrlInBrowser(url = Constants.URL_IVY_WALLET_REPO)
-            }
+            BuyProAccount()
         }
 
         item {
@@ -556,6 +550,7 @@ private fun BoxWithConstraintsScope.UI(
         }
     )
 
+
     DeleteModal(
         title = stringResource(R.string.delete_all_cloud_data_question),
         description = stringResource(
@@ -575,6 +570,53 @@ private fun BoxWithConstraintsScope.UI(
         description = stringResource(R.string.exporting_data_description),
         visible = progressState
     )
+}
+
+@Composable
+private fun BuyProAccount(){
+    val context = LocalContext.current
+
+    val activity = (context as? Activity)
+
+    SettingsButtonRow(
+        onClick = {
+            RaveUiManager(activity)
+                .setAmount(1.0)
+                .setCountry("Nigeria")
+                .setCurrency("NGN")
+                .setfName("Test")
+                .setlName("Test1")
+                .setEmail("test@test.com")
+                .setTxRef("TX-${System.currentTimeMillis()}")
+                .setPublicKey("FLWPUBK_TEST-20bf9bb7f8c7f8b58c22672a3779f6fd-X")
+                .setEncryptionKey("FLWSECK_TEST1e4f80b8d562")
+                .acceptAccountPayments(true)
+                .acceptCardPayments(true)
+                .withTheme(com.ivy.settings.R.style.FlutterWaveTheme)
+                .initialize()
+        }
+    ) {
+        Spacer(Modifier.width(12.dp))
+
+        IvyIconScaled(
+            icon = R.drawable.ic_profile,
+            tint = UI.colors.pureInverse,
+            iconScale = IconScale.M,
+            padding = 2.dp
+        )
+
+        Spacer(Modifier.width(8.dp))
+
+        Text(
+            modifier = Modifier.padding(vertical = 20.dp),
+            text = stringResource(R.string.start_date_of_month),
+            style = UI.typo.b2.style(
+                color = UI.colors.pureInverse,
+                fontWeight = FontWeight.Bold
+            )
+        )
+    }
+
 }
 
 @Composable

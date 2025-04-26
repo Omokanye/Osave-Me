@@ -17,4 +17,7 @@ dependencies {
     implementation(projects.widget.addTransaction)
 
     testImplementation(projects.shared.ui.testing)
+
+    //ad
+    implementation(libs.ad.mob)
 }

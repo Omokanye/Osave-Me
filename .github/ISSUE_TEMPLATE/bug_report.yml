@@ -50,7 +50,7 @@ body:
     id: app_version
     attributes:
       label: App version
-      description: Specify the exact version of the Ivy Wallet app. You can see it on the top right of the Settings screen.
+      description: Specify the exact version of the Osave Me app. You can see it on the top right of the Settings screen.
       placeholder: v2024.06.07 (181) from Google Play
     validations:
       required: true

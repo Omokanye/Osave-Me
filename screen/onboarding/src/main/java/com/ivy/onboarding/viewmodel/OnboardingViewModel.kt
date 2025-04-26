@@ -15,6 +15,7 @@ import com.ivy.domain.usecase.exchange.SyncExchangeRatesUseCase
 import com.ivy.legacy.LogoutLogic
 import com.ivy.data.model.Category
 import com.ivy.data.repository.CategoryRepository
+import com.ivy.data.repository.StreaksRepository
 import com.ivy.legacy.data.model.AccountBalance
 import com.ivy.legacy.datamodel.Account
 import com.ivy.legacy.datamodel.Settings
@@ -54,6 +55,7 @@ class OnboardingViewModel @Inject constructor(
     private val accountsAct: AccountsAct,
     private val syncExchangeRatesUseCase: SyncExchangeRatesUseCase,
     private val settingsWriter: WriteSettingsDao,
+    streaksRepository: StreaksRepository,
 
     // Only OnboardingRouter stuff
     sharedPrefs: SharedPrefs,
@@ -100,6 +102,7 @@ class OnboardingViewModel @Inject constructor(
         transactionReminderLogic = transactionReminderLogic,
         logoutLogic = logoutLogic,
         syncExchangeRatesUseCase = syncExchangeRatesUseCase,
+        streaksRepository = streaksRepository
     )
 
     fun start(screen: OnboardingScreen, isSystemDarkMode: Boolean) {

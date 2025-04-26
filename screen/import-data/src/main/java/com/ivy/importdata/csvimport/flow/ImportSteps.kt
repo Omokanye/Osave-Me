@@ -18,7 +18,7 @@ fun ImportType.ImportSteps(
     onUploadClick: () -> Unit
 ) {
     when (this) {
-        ImportType.IVY -> {
+        ImportType.OSAVE_ME -> {
             IvyWalletSteps(
                 onUploadClick = onUploadClick
             )

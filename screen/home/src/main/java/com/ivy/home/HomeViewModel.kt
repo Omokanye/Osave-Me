@@ -1,12 +1,20 @@
 package com.ivy.home
 
+import android.app.Activity
+import android.content.Context
+import android.media.tv.AdRequest
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.admanager.AdManagerAdRequest
+import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.ivy.base.legacy.Theme
 import com.ivy.base.legacy.Transaction
 import com.ivy.base.legacy.TransactionHistoryItem
@@ -14,6 +22,7 @@ import com.ivy.base.time.TimeConverter
 import com.ivy.base.time.TimeProvider
 import com.ivy.data.model.primitive.AssetCode
 import com.ivy.data.repository.CategoryRepository
+import com.ivy.data.repository.StreaksRepository
 import com.ivy.data.repository.mapper.TransactionMapper
 import com.ivy.domain.features.Features
 import com.ivy.domain.usecase.exchange.SyncExchangeRatesUseCase
@@ -57,6 +66,7 @@ import com.ivy.wallet.domain.deprecated.logic.PlannedPaymentsLogic
 import com.ivy.wallet.domain.pure.data.ClosedTimeRange
 import com.ivy.wallet.domain.pure.data.IncomeExpensePair
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
@@ -92,7 +102,8 @@ class HomeViewModel @Inject constructor(
     private val transactionMapper: TransactionMapper,
     private val timeProvider: TimeProvider,
     private val timeConverter: TimeConverter,
-    private val features: Features
+    private val features: Features,
+    private val streaksRepository: StreaksRepository
 ) : ComposeViewModel<HomeState, HomeEvent>() {
     private var currentTheme by mutableStateOf(Theme.AUTO)
     private var name by mutableStateOf("")
@@ -133,6 +144,8 @@ class HomeViewModel @Inject constructor(
     private var hideIncome by mutableStateOf(false)
     private var expanded by mutableStateOf(true)
 
+    private var streaksCount by mutableIntStateOf(0)
+
     @Composable
     override fun uiState(): HomeState {
         LaunchedEffect(Unit) {
@@ -154,7 +167,8 @@ class HomeViewModel @Inject constructor(
             hideBalance = getHideBalance(),
             expanded = getExpanded(),
             hideIncome = getHideIncome(),
-            shouldShowAccountSpecificColorInTransactions = getShouldShowAccountSpecificColorInTransactions()
+            shouldShowAccountSpecificColorInTransactions = getShouldShowAccountSpecificColorInTransactions(),
+            streaksCount = streaksCount
         )
     }
 
@@ -233,6 +247,12 @@ class HomeViewModel @Inject constructor(
         return hideIncome
     }
 
+    private fun getStreaksCount() {
+        viewModelScope.launch {
+            streaksCount = streaksRepository.getStreaksCount()
+        }
+    }
+
     override fun onEvent(event: HomeEvent) {
         viewModelScope.launch {
             when (event) {
@@ -252,12 +272,14 @@ class HomeViewModel @Inject constructor(
                 HomeEvent.SwitchTheme -> switchTheme()
                 is HomeEvent.DismissCustomerJourneyCard -> dismissCustomerJourneyCard(event.card)
                 is HomeEvent.SetExpanded -> setExpanded(event.expanded)
+                is HomeEvent.AdClick -> loadAd(event.context)
             }
         }
     }
 
     private suspend fun start() {
         suspend {
+            getStreaksCount()
             val startDay = startDayOfMonthAct(Unit)
             ivyContext.initSelectedPeriodInMemory(
                 startDayOfMonth = startDay
@@ -529,6 +551,21 @@ class HomeViewModel @Inject constructor(
 
     private suspend fun setPeriod(period: TimePeriod) {
         reload(period)
+    }
+
+    private fun loadAd(context: Context) {
+        viewModelScope.launch {
+            RewardedAd.load(context, "ca-app-pub-9967679475722735/7375188445", AdManagerAdRequest.Builder().build(), object : RewardedAdLoadCallback() {
+                override fun onAdLoaded(p0: RewardedAd) {
+                    p0.show(context as Activity){
+                        viewModelScope.launch {
+                            streaksRepository.updateStreaksCountFromAd(it.amount)
+                            getStreaksCount()
+                        }
+                    }
+                }
+            })
+        }
     }
 
     @JvmName("setExpandedMethod")

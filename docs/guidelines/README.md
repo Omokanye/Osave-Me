@@ -1,6 +1,6 @@
 # 🏗️ Guidelines Wiki
 
-This is Ivy Wallet's Developer Guidelines wiki. We recommend the following reading order:
+This is Osave Me's Developer Guidelines wiki. We recommend the following reading order:
 
 1. **[Data Modeling](./Data-Modeling.md)**
 2. **[Error Handling](./Error-Handling.md)**
