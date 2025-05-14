@@ -71,6 +71,7 @@ import kotlin.math.roundToInt
 fun BoxWithConstraintsScope.OnboardingSplashLogin(
     onboardingState: OnboardingState,
     onSkip: () -> Unit,
+    onOnlineLogin: () -> Unit
 ) {
     var internalSwitch by remember { mutableStateOf(true) }
 
@@ -211,7 +212,8 @@ fun BoxWithConstraintsScope.OnboardingSplashLogin(
 
         LoginSection(
             percentTransition = percentTransition,
-            onSkip = onSkip
+            onSkip = onSkip,
+            onOnlineLogin = onOnlineLogin
         )
     }
 }
@@ -238,7 +240,8 @@ private fun Modifier.animateXCenterToLeft(
 @Composable
 private fun LoginSection(
     percentTransition: Float,
-    onSkip: () -> Unit
+    onSkip: () -> Unit,
+    onOnlineLogin: () -> Unit
 ) {
     if (percentTransition > 0.01f) {
         Column(
@@ -261,6 +264,15 @@ private fun LoginSection(
             ) {
                 onSkip()
             }
+            Spacer(modifier = Modifier.height(16.dp))
+            LoginButton(
+                icon = R.drawable.ic_local_account,
+                text = stringResource(R.string.online_account),
+                textColor = UI.colors.pureInverse,
+                backgroundGradient = Gradient.solid(UI.colors.medium),
+                hasShadow = false,
+                onClick = onOnlineLogin
+            )
 
             Spacer(Modifier.weight(3f))
             Spacer(Modifier.height(16.dp))
@@ -415,7 +427,8 @@ private fun Preview() {
     IvyWalletPreview {
         OnboardingSplashLogin(
             onboardingState = OnboardingState.SPLASH,
-            onSkip = {}
+            onSkip = {},
+            onOnlineLogin = {}
         )
     }
 }

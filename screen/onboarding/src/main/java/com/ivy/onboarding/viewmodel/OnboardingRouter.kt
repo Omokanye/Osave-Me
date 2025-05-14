@@ -16,6 +16,7 @@ import com.ivy.navigation.ImportScreen
 import com.ivy.navigation.MainScreen
 import com.ivy.navigation.Navigation
 import com.ivy.navigation.OnboardingScreen
+import com.ivy.navigation.OnlineRegistrationFormScreen
 import com.ivy.onboarding.OnboardingState
 import com.ivy.wallet.domain.data.IvyCurrency
 import com.ivy.wallet.domain.deprecated.logic.PreloadDataLogic
@@ -254,6 +255,10 @@ class OnboardingRouter(
 
         nav.resetBackStack()
         nav.navigateTo(MainScreen)
+    }
+
+    fun loginOnlineAccount() {
+        nav.navigateTo(OnlineRegistrationFormScreen)
     }
     // -------------------------------------- Routes ------------------------------------------------
 }

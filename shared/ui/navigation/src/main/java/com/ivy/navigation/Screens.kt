@@ -143,3 +143,11 @@ data object ContributorsScreen : Screen
 data object ReleasesScreen : Screen
 
 data object DisclaimerScreen : Screen
+
+data object BusinessDashboard: Screen
+
+data object RequestAnnual: Screen
+
+data object OnlineRegistrationFormScreen: Screen
+
+data object LawyerDashboardScreen: Screen

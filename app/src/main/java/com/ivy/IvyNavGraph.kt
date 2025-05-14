@@ -12,14 +12,19 @@ import com.ivy.contributors.ContributorsScreenImpl
 import com.ivy.disclaimer.DisclaimerScreenImpl
 import com.ivy.exchangerates.ExchangeRatesScreen
 import com.ivy.features.FeaturesScreenImpl
+import com.ivy.home.BusinessDashboardScreenImpl
+import com.ivy.home.InvestorDashboardScreenImpl
+import com.ivy.home.RequestAnnualReturnsScreenImpl
 import com.ivy.importdata.csv.CSVScreen
 import com.ivy.importdata.csvimport.ImportCSVScreen
 import com.ivy.loans.loan.LoansScreen
 import com.ivy.loans.loandetails.LoanDetailsScreen
+import com.ivy.login.OnlineRegistrationFormScreenImpl
 import com.ivy.main.MainScreen
 import com.ivy.navigation.AttributionsScreen
 import com.ivy.navigation.BalanceScreen
 import com.ivy.navigation.BudgetScreen
+import com.ivy.navigation.BusinessDashboard
 import com.ivy.navigation.CSVScreen
 import com.ivy.navigation.CategoriesScreen
 import com.ivy.navigation.ContributorsScreen
@@ -29,14 +34,17 @@ import com.ivy.navigation.EditTransactionScreen
 import com.ivy.navigation.ExchangeRatesScreen
 import com.ivy.navigation.FeaturesScreen
 import com.ivy.navigation.ImportScreen
+import com.ivy.navigation.LawyerDashboardScreen
 import com.ivy.navigation.LoanDetailsScreen
 import com.ivy.navigation.LoansScreen
 import com.ivy.navigation.MainScreen
 import com.ivy.navigation.OnboardingScreen
+import com.ivy.navigation.OnlineRegistrationFormScreen
 import com.ivy.navigation.PieChartStatisticScreen
 import com.ivy.navigation.PlannedPaymentsScreen
 import com.ivy.navigation.ReleasesScreen
 import com.ivy.navigation.ReportScreen
+import com.ivy.navigation.RequestAnnual
 import com.ivy.navigation.Screen
 import com.ivy.navigation.SearchScreen
 import com.ivy.navigation.SettingsScreen
@@ -85,5 +93,9 @@ fun BoxWithConstraintsScope.IvyNavGraph(screen: Screen?) {
         ContributorsScreen -> ContributorsScreenImpl()
         ReleasesScreen -> ReleasesScreenImpl()
         DisclaimerScreen -> DisclaimerScreenImpl()
+        BusinessDashboard -> BusinessDashboardScreenImpl()
+        RequestAnnual -> RequestAnnualReturnsScreenImpl()
+        OnlineRegistrationFormScreen -> OnlineRegistrationFormScreenImpl()
+        LawyerDashboardScreen -> InvestorDashboardScreenImpl()
     }
 }

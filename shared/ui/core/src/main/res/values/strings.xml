@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="osave_me" translatable="false">Osave ME</string>
     <string name="accounts">Accounts</string>
     <string name="total">Total: %1$s %2$s</string>
     <string name="month_income">INCOME THIS MONTH</string>
@@ -170,6 +171,7 @@
     <string name="google_signing_in_success">Success!</string>
     <string name="login_with_google">Sign in with Google</string>
     <string name="offline_account">Offline account</string>
+    <string name="online_account">Online account</string>
     <string name="sync_data_ivy_cloud">SYNC YOUR DATA IN THE Osave Me CLOUD</string>
     <string name="data_integrity_protection_warning">Data integrity and protection are not guaranteed!</string>
     <string name="or_enter_with_offline_account">OR ENTER WITH OFFLINE ACCOUNT</string>

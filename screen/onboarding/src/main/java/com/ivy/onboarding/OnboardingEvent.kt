@@ -22,4 +22,7 @@ sealed interface OnboardingEvent {
     data class CreateCategory(val data: CreateCategoryData) : OnboardingEvent
     data object OnAddCategoriesDone : OnboardingEvent
     data object OnAddCategoriesSkip : OnboardingEvent
+
+    //new
+    data object LoginOnlineAccount : OnboardingEvent
 }

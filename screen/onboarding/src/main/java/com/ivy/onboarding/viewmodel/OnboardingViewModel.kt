@@ -148,7 +148,6 @@ class OnboardingViewModel @Inject constructor(
                 is OnboardingEvent.EditCategory -> editCategory(event.updatedCategory)
                 is OnboardingEvent.ImportFinished -> importFinished(event.success)
                 OnboardingEvent.ImportSkip -> importSkip()
-                OnboardingEvent.LoginOfflineAccount -> loginOfflineAccount()
                 OnboardingEvent.OnAddAccountsDone -> onAddAccountsDone()
                 OnboardingEvent.OnAddAccountsSkip -> onAddAccountsSkip()
                 OnboardingEvent.OnAddCategoriesDone -> onAddCategoriesDone()
@@ -156,8 +155,15 @@ class OnboardingViewModel @Inject constructor(
                 is OnboardingEvent.SetBaseCurrency -> setBaseCurrency(event.baseCurrency)
                 OnboardingEvent.StartFresh -> startFresh()
                 OnboardingEvent.StartImport -> startImport()
+                OnboardingEvent.LoginOfflineAccount -> loginOfflineAccount()
+                is OnboardingEvent.LoginOnlineAccount -> loginOnlineAccount()
             }
         }
+    }
+
+    //------------------Online login flow--------------------//
+    private fun loginOnlineAccount() {
+        router.loginOnlineAccount()
     }
 
     private suspend fun loginOfflineAccount() {
